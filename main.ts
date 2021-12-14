@@ -338,7 +338,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(1000)
         mySprite.sayText("Press Q to try again!", 1000, false)
     }
+    triviaQuestion2 = game.askForString("Who was the 4th president of the United States?", 15)
 })
+let triviaQuestion2 = ""
 let projectile3: Sprite = null
 let projectile2: Sprite = null
 let projectile: Sprite = null
