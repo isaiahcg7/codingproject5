@@ -293,10 +293,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 let triviaQuestion1 = ""
 let answer = ""
-let mySprite: Sprite = null
 let _4: Sprite = null
 let _3: Sprite = null
 let _2: Sprite = null
+let mySprite: Sprite = null
 let _1: Sprite = null
 choose(_1)
 let answer_2 = game.askForString("Do you want to play?", 3)
