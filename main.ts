@@ -381,6 +381,7 @@ if (answer_2 == "yes") {
         .......eeee.4ee..ece.cccec......
         ....eee....e......e...eee.ccee..
         `, SpriteKind.Player)
-    mySprite.setPosition(34, 75)
+    mySprite.setPosition(64, 75)
     mySprite.sayText("Great Press Q to start your quest!")
+    _2.setPosition(78, 75)
 }
