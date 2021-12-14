@@ -210,7 +210,7 @@ function choose (character: Sprite) {
     _4.destroy()
     answer = game.askForString("Who will you choose?", 1)
     if (answer == "q") {
-        _1 = sprites.create(img`
+        _2 = sprites.create(img`
             . . . . . . f f f f . . . . . . 
             . . . . f f f 2 2 f f f . . . . 
             . . . f f f 2 2 2 2 f f f . . . 
@@ -290,6 +290,9 @@ function choose (character: Sprite) {
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     triviaQuestion1 = game.askForString("Who was the 4th President of the United States?")
+    if (triviaQuestion1 == "James Madison" || triviaQuestion1 == "james madison") {
+        _2.sayText(triviaQuestion1, 2000, false)
+    }
 })
 let triviaQuestion1 = ""
 let answer = ""
@@ -335,5 +338,6 @@ if (answer_2 == "yes") {
         .......eeee.4ee..ece.cccec......
         ....eee....e......e...eee.ccee..
         `, SpriteKind.Player)
-    mySprite.setPosition(36, 55)
+    mySprite.setPosition(34, 75)
+    mySprite.sayText("Great Press Q to start your quest!")
 }
