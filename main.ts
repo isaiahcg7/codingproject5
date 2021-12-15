@@ -290,7 +290,7 @@ function choose (character: Sprite) {
     info.setLife(5)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    triviaQuestion1 = game.askForString("Who was the 4th President of the United States?", 12)
+    triviaQuestion1 = game.askForString("Who was the 4th President of the United States?")
     if (triviaQuestion1 == "James Madison" || triviaQuestion1 == "james madison") {
         _2.sayText(triviaQuestion1, 1000, false)
         for (let index = 0; index < 15; index++) {
