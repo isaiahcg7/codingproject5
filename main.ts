@@ -292,6 +292,7 @@ function choose (character: Sprite) {
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     triviaQuestion1 = game.askForString("which color rarely occurs in nature?", 10)
+    // Conditional Statement
     if (triviaQuestion1 == "Blue" || triviaQuestion1 == "blue") {
         _2.sayText(triviaQuestion1, 1000, false)
         pause(1000)
@@ -353,6 +354,7 @@ let mySprite: Sprite = null
 let _1: Sprite = null
 choose(_1)
 let answer_2 = game.askForString("Do you want to play?", 3)
+// Conditional Statement
 if (answer_2 == "yes") {
     mySprite = sprites.create(img`
         .....445...4455....54...eeee.22.
