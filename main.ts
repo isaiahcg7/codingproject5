@@ -288,11 +288,15 @@ function choose (character: Sprite) {
             `, SpriteKind.Player)
     }
     info.setLife(5)
+    _2.setPosition(100, 85)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    triviaQuestion1 = game.askForString("Who was the 4th President of the United States?")
-    if (triviaQuestion1 == "James Madison" || triviaQuestion1 == "james madison") {
+    triviaQuestion1 = game.askForString("Which colour rarely occurs in Nature?")
+    if (triviaQuestion1 == "Blue" || triviaQuestion1 == "blue") {
         _2.sayText(triviaQuestion1, 1000, false)
+        pause(1000)
+        mySprite.sayText("Correct! You've earned 50 gold!", 1000, false)
+        pause(1000)
         for (let index = 0; index < 15; index++) {
             projectile = sprites.createProjectileFromSprite(img`
                 . . b b b b . . 
@@ -303,7 +307,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 c d d 1 1 d d c 
                 . f d d d d f . 
                 . . f f f f . . 
-                `, mySprite, randint(-50, 50), randint(-50, 50))
+                `, _2, randint(-50, 50), randint(-50, 50))
             projectile2 = sprites.createProjectileFromSprite(img`
                 . . b b b . . . 
                 . b 5 5 5 b . . 
@@ -313,7 +317,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 c 5 d 1 d d c . 
                 . f d d d f . . 
                 . . f f f . . . 
-                `, mySprite, randint(-50, 50), randint(-50, 50))
+                `, _2, randint(-50, 50), randint(-50, 50))
             projectile3 = sprites.createProjectileFromSprite(img`
                 . . . b b . . . 
                 . . b 5 5 b . . 
@@ -323,16 +327,18 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 . c 5 1 d d c . 
                 . . f d d f . . 
                 . . . f f . . . 
-                `, mySprite, randint(-50, 50), randint(-50, 50))
+                `, _2, randint(-50, 50), randint(-50, 50))
         }
-        mySprite.sayText("Correct! You've earned 50 gold!", 1000, false)
         info.changeScoreBy(50)
+        mySprite.sayText("On to the next One?", 1000, false)
+        pause(1000)
     } else {
         _2.sayText(triviaQuestion1, 1000, false)
         mySprite.sayText("Incorrect...You've lost one Life", 1000, false)
         pause(1000)
         mySprite.sayText("Press Q to try again!", 1000, false)
     }
+    triviaQuestion1 = game.askForString("Who was the 4th President of the United States?")
 })
 let projectile3: Sprite = null
 let projectile2: Sprite = null
@@ -381,6 +387,6 @@ if (answer_2 == "yes") {
         .......eeee.4ee..ece.cccec......
         ....eee....e......e...eee.ccee..
         `, SpriteKind.Player)
-    mySprite.setPosition(34, 75)
+    mySprite.setPosition(64, 75)
     mySprite.sayText("Great Press Q to start your quest!")
 }
