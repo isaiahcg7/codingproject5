@@ -291,8 +291,55 @@ function choose (character: Sprite) {
     _2.setPosition(100, 85)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    triviaQuestion1 = game.askForString("Which colour rarely occurs in Nature?")
+    triviaQuestion1 = game.askForString("Which colour rarely occurs in Nature?", 6)
     if (triviaQuestion1 == "Blue" || triviaQuestion1 == "blue") {
+        _2.sayText(triviaQuestion1, 1000, false)
+        pause(1000)
+        mySprite.sayText("Correct! You've earned 50 gold!", 1000, false)
+        pause(1000)
+        for (let index = 0; index < 15; index++) {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . b b b b . . 
+                . b 5 5 5 5 b . 
+                b 5 d 3 3 d 5 b 
+                b 5 3 5 5 1 5 b 
+                c 5 3 5 5 1 d c 
+                c d d 1 1 d d c 
+                . f d d d d f . 
+                . . f f f f . . 
+                `, _2, randint(-50, 50), randint(-50, 50))
+            projectile2 = sprites.createProjectileFromSprite(img`
+                . . b b b . . . 
+                . b 5 5 5 b . . 
+                b 5 d 3 d 5 b . 
+                b 5 3 5 1 5 b . 
+                c 5 3 5 1 d c . 
+                c 5 d 1 d d c . 
+                . f d d d f . . 
+                . . f f f . . . 
+                `, _2, randint(-50, 50), randint(-50, 50))
+            projectile3 = sprites.createProjectileFromSprite(img`
+                . . . b b . . . 
+                . . b 5 5 b . . 
+                . b 5 d 1 5 b . 
+                . b 5 3 1 5 b . 
+                . c 5 3 1 d c . 
+                . c 5 1 d d c . 
+                . . f d d f . . 
+                . . . f f . . . 
+                `, _2, randint(-50, 50), randint(-50, 50))
+        }
+        info.changeScoreBy(50)
+        mySprite.sayText("On to the next One?", 1000, false)
+        pause(2000)
+    } else {
+        _2.sayText(triviaQuestion1, 1000, false)
+        mySprite.sayText("Incorrect...You've lost one Life", 1000, false)
+        pause(1000)
+        mySprite.sayText("Press Q to try again!", 1000, false)
+    }
+    triviaQuestion1 = game.askForString("Who was the 4th President of the United States?", 15)
+    if (triviaQuestion1 == "James Madison" || triviaQuestion1 == "james madison") {
         _2.sayText(triviaQuestion1, 1000, false)
         pause(1000)
         mySprite.sayText("Correct! You've earned 50 gold!", 1000, false)
@@ -338,7 +385,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(1000)
         mySprite.sayText("Press Q to try again!", 1000, false)
     }
-    triviaQuestion1 = game.askForString("Who was the 4th President of the United States?")
 })
 let projectile3: Sprite = null
 let projectile2: Sprite = null
